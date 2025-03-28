@@ -51,15 +51,15 @@ export default function AkreditasiJurnalPage() {
                 Konsultasi Sekarang
               </Link>
             </div>
-            <div className="rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/placeholder.svg?height=500&width=600"
-                alt="Pendampingan Akreditasi Jurnal"
-                width={600}
-                height={500}
-                className="w-full h-full object-cover"
-              />
-            </div>
+        <div className="relative w-full h-[500px] rounded-lg shadow-lg overflow-hidden">
+            <Image
+              src="/ojs-hero.jpg"
+              alt="Academic collaboration"
+              layout="fill" // Memastikan gambar memenuhi container
+              objectFit="cover" // Memastikan gambar tidak terpotong dan tetap proporsional
+              className="rounded-lg"
+            />
+          </div>
           </div>
         </div>
       </section>

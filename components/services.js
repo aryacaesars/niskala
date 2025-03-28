@@ -7,27 +7,32 @@ export default function Services() {
       description:
         "Kami membantu jurnal Anda dalam proses akreditasi dengan pendampingan profesional dan komprehensif.",
       icon: Award,
+      link: "/services/akreditasi-jurnal",
     },
     {
       title: "Pembuatan Jurnal",
       description: "Layanan pembuatan jurnal dari awal hingga siap publikasi dengan standar kualitas internasional.",
       icon: BookOpen,
+      link: "/services/pembuatan-jurnal",
     },
     {
       title: "Pendampingan Penulisan Artikel",
       description:
         "Bantuan dalam menulis dan menyusun artikel ilmiah yang memenuhi standar publikasi jurnal bereputasi.",
       icon: Edit,
+      link: "/services/penulisan-artikel",
     },
     {
       title: "Pembuatan Book Chapter",
       description: "Layanan pembuatan dan publikasi book chapter dengan pendampingan dari tim ahli kami.",
       icon: BookText,
+      link: "/services/book-chapter",
     },
     {
       title: "OJS Service",
       description: "Bantuan dalam pengelolaan Open Journal Systems (OJS) untuk jurnal online Anda.",
       icon: Server,
+      link: "/services/ojs-service",
     },
   ]
 
@@ -53,7 +58,7 @@ export default function Services() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
                 <p className="text-gray-600">{service.description}</p>
-                <a href="#" className="mt-4 inline-flex items-center text-blue-800 hover:text-blue-600">
+                <a href={service.link} className="mt-4 inline-flex items-center text-blue-800 hover:text-blue-600">
                   Pelajari lebih lanjut
                   <svg
                     className="ml-2 w-4 h-4"
