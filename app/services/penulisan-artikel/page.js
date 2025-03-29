@@ -1,205 +1,371 @@
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
-import { Edit, CheckCircle } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+"use client";
 
-export default function PenulisanArtikelPage() {
-  const services = [
-    {
-      title: "Pendampingan Penulisan",
-      description: "Bantuan langsung dalam proses penulisan artikel ilmiah dari awal hingga akhir",
-    },
-    {
-      title: "Review dan Editing",
-      description: "Evaluasi menyeluruh dan perbaikan artikel yang sudah ada",
-    },
-    {
-      title: "Analisis Data",
-      description: "Bantuan dalam menganalisis dan menyajikan data penelitian",
-    },
-    {
-      title: "Pelatihan Penulisan",
-      description: "Workshop dan pelatihan untuk meningkatkan kemampuan menulis artikel ilmiah",
-    },
-    {
-      title: "Strategi Publikasi",
-      description: "Konsultasi untuk memilih jurnal yang tepat dan strategi publikasi",
-    },
-    {
-      title: "Terjemahan Artikel",
-      description: "Layanan terjemahan artikel ke dalam bahasa Inggris atau bahasa lainnya",
-    },
-  ]
+import Image from "next/image"
+import OrderFlow from "@/components/order-flow"
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+
+export default function Pricing() {
+  return (
+    
+    <div className="min-h-screen bg-gray-50">
+ 
+      <Navbar />
+      
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-8">
+        {/* Price List Header */}
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center mb-4">
+            <div className="h-0.5 bg-gray-300 w-1/4"></div>
+            <h2 className="px-6 text-2xl font-medium text-gray-800">PRICE LIST</h2>
+            <div className="h-0.5 bg-gray-300 w-1/4"></div>
+          </div>
+          <h1 className="text-3xl font-bold text-blue-500">Harga Layanan Jurnal Nasional</h1>
+        </div>
+
+
+        {/* Pricing Cards - First Row */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
+          {/* Card 1 */}
+          <PricingCard
+            title="Prosiding Nasional ISSN"
+            price="Rp.1.500.000"
+            features={[
+              { text: "Penentuan Tema / Judul", included: true },
+              { text: "Pembuatan Jurnal", included: true },
+              {
+                text: "Struktur Jurnal : Abstrak, Latar Belakang, Literatur Review, Metodologi, Hasil, Pembahasan",
+                included: true,
+              },
+              {
+                text: "Pemilihan Referensi Nasional dan International Bereputasi (Minimal 35 referensi)",
+                included: true,
+              },
+              { text: "Penataan Tatabahasa, Keterbaruan, dan Kedalaman isi", included: true },
+              { text: "Pengumpulan Data", included: true },
+              { text: "Analisis Statistik", included: true },
+              { text: "Translate", included: true },
+              { text: "Proofread", included: true },
+              { text: "Proses Mendeley (Daftar Pustaka)", included: true },
+              { text: "Cek Plagiasi (Turnitin minimal 15%)", included: true },
+              { text: "Layouting Jurnal Sesuai Templet", included: true },
+              { text: "Memilih Target publikasi sesuai prosiding", included: true },
+              { text: "Proses Pendampingan publikasi/penerbitan jurnal", included: true },
+              { text: "Proses Submission", included: true },
+              { text: "Perbaikan/Revisi", included: true },
+              { text: "Korespondensi", included: true },
+              { text: "Lama Pembuatan Jurnal 1-2 Minggu", included: true },
+              { text: "Submit ke beberapa Publisher 1 Minggu", included: true },
+              { text: "Penerimaan LOA (Letter of Acceptance) 1-6 Bulan*", included: true },
+              { text: "Publish 3-8 Bulan*", included: true },
+            ]}
+          />
+
+          {/* Card 2 */}
+          <PricingCard
+            title="Jurnal Nasional ISSN"
+            price="Rp.2.000.000"
+            features={[
+              { text: "Penentuan Tema / Judul", included: true },
+              { text: "Pembuatan Jurnal", included: true },
+              {
+                text: "Struktur Jurnal : Abstrak, Latar Belakang, Literatur Review, Metodologi, Hasil, Pembahasan",
+                included: true,
+              },
+              {
+                text: "Pemilihan Referensi Nasional dan International Bereputasi (Minimal 35 referensi)",
+                included: true,
+              },
+              { text: "Penataan Tatabahasa, Keterbaruan, dan Kedalaman isi", included: true },
+              { text: "Pengumpulan Data", included: true },
+              { text: "Analisis Statistik", included: true },
+              { text: "Translate", included: true },
+              { text: "Proofread", included: true },
+              { text: "Proses Mendeley (Daftar Pustaka)", included: true },
+              { text: "Cek Plagiasi (Turnitin minimal 15%)", included: true },
+              { text: "Layouting Jurnal Sesuai Templet", included: true },
+              { text: "Memilih Target publikasi sesuai prosiding", included: true },
+              { text: "Proses Pendampingan publikasi/penerbitan jurnal", included: true },
+              { text: "Proses Submission", included: true },
+              { text: "Perbaikan/Revisi", included: true },
+              { text: "Korespondensi", included: true },
+              { text: "Lama Pembuatan Jurnal 1-2 Minggu", included: true },
+              { text: "Submit ke beberapa Publisher 1 Minggu", included: true },
+              { text: "Penerimaan LOA (Letter of Acceptance) 1-6 Bulan*", included: true },
+              { text: "Publish 3-8 Bulan*", included: true },
+            ]}
+          />
+
+          {/* Card 3 */}
+          <PricingCard
+            title="Jurnal Nasional SINTA 5-6"
+            price="Rp.2.000.000"
+            features={[
+              { text: "Penentuan Tema / Judul", included: true },
+              { text: "Pembuatan Jurnal", included: true },
+              {
+                text: "Struktur Jurnal : Abstrak, Latar Belakang, Literatur Review, Metodologi, Hasil, Pembahasan",
+                included: true,
+              },
+              {
+                text: "Pemilihan Referensi Nasional dan International Bereputasi (Minimal 35 referensi)",
+                included: true,
+              },
+              { text: "Penataan Tatabahasa, Keterbaruan, dan Kedalaman isi", included: true },
+              { text: "Pengumpulan Data", included: true },
+              { text: "Analisis Statistik", included: true },
+              { text: "Translate", included: true },
+              { text: "Proofread", included: true },
+              { text: "Proses Mendeley (Daftar Pustaka)", included: true },
+              { text: "Cek Plagiasi (Turnitin minimal 15%)", included: true },
+              { text: "Layouting Jurnal Sesuai Templet", included: true },
+              { text: "Memilih Target publikasi sesuai prosiding", included: true },
+              { text: "Proses Pendampingan publikasi/penerbitan jurnal", included: true },
+              { text: "Proses Submission", included: true },
+              { text: "Perbaikan/Revisi", included: true },
+              { text: "Korespondensi", included: true },
+              { text: "Lama Pembuatan Jurnal 1-2 Minggu", included: true },
+              { text: "Submit ke beberapa Publisher 1 Minggu", included: true },
+              { text: "Penerimaan LOA (Letter of Acceptance) 1-6 Bulan*", included: true },
+              { text: "Publish 3-8 Bulan*", included: true },
+            ]}
+          />
+        </div>
+
+        {/* Pricing Cards - Second Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {/* Card 4 */}
+          <PricingCard
+            title="Jurnal Nasional Sinta 3-4"
+            price="Rp.3.000.000"
+            features={[
+              { text: "Penentuan Tema / Judul", included: true },
+              { text: "Pembuatan Jurnal", included: true },
+              {
+                text: "Struktur Jurnal : Abstrak, Latar Belakang, Literatur Review, Metodologi, Hasil, Pembahasan",
+                included: true,
+              },
+              {
+                text: "Pemilihan Referensi Nasional dan International Bereputasi (Minimal 35 referensi)",
+                included: true,
+              },
+              { text: "Penataan Tatabahasa, Keterbaruan, dan Kedalaman isi", included: true },
+              { text: "Pengumpulan Data", included: true },
+              { text: "Analisis Statistik", included: true },
+              { text: "Translate", included: true },
+              { text: "Proofread", included: true },
+              { text: "Proses Mendeley (Daftar Pustaka)", included: true },
+              { text: "Cek Plagiasi (Turnitin minimal 15%)", included: true },
+              { text: "Layouting Jurnal Sesuai Templet", included: true },
+              { text: "Memilih Target publikasi sesuai prosiding", included: true },
+              { text: "Proses Pendampingan publikasi/penerbitan jurnal", included: true },
+              { text: "Proses Submission", included: true },
+              { text: "Perbaikan/Revisi", included: true },
+              { text: "Korespondensi", included: true },
+              { text: "Lama Pembuatan Jurnal 1-2 Minggu", included: true },
+              { text: "Submit ke beberapa Publisher 1 Minggu", included: true },
+              { text: "Penerimaan LOA (Letter of Acceptance) 1-6 Bulan*", included: true },
+              { text: "Publish 3-8 Bulan*", included: true },
+            ]}
+          />
+
+          {/* Card 5 */}
+          <PricingCard
+            title="Jurnal Nasional Sinta 2"
+            price="Rp.4.000.000"
+            features={[
+              { text: "Penentuan Tema / Judul", included: true },
+              { text: "Pembuatan Jurnal", included: true },
+              {
+                text: "Struktur Jurnal : Abstrak, Latar Belakang, Literatur Review, Metodologi, Hasil, Pembahasan",
+                included: true,
+              },
+              {
+                text: "Pemilihan Referensi Nasional dan International Bereputasi (Minimal 35 referensi)",
+                included: true,
+              },
+              { text: "Penataan Tatabahasa, Keterbaruan, dan Kedalaman isi", included: true },
+              { text: "Pengumpulan Data", included: true },
+              { text: "Analisis Statistik", included: true },
+              { text: "Translate", included: true },
+              { text: "Proofread", included: true },
+              { text: "Proses Mendeley (Daftar Pustaka)", included: true },
+              { text: "Cek Plagiasi (Turnitin minimal 15%)", included: true },
+              { text: "Layouting Jurnal Sesuai Templet", included: true },
+              { text: "Memilih Target publikasi sesuai prosiding", included: true },
+              { text: "Proses Pendampingan publikasi/penerbitan jurnal", included: true },
+              { text: "Proses Submission", included: true },
+              { text: "Perbaikan/Revisi", included: true },
+              { text: "Korespondensi", included: true },
+              { text: "Lama Pembuatan Jurnal 1-2 Minggu", included: true },
+              { text: "Submit ke beberapa Publisher 1 Minggu", included: true },
+              { text: "Penerimaan LOA (Letter of Acceptance) 1-6 Bulan*", included: true },
+              { text: "Publish 3-8 Bulan*", included: true },
+            ]}
+          />
+        </div>
+
+        {/* International Journal Pricing Section */}
+        <div className="text-center mb-8 mt-16">
+          <div className="flex items-center justify-center mb-4">
+            <div className="h-0.5 bg-gray-300 w-1/4"></div>
+            <h2 className="px-6 text-2xl font-medium text-gray-800">PRICE LIST</h2>
+            <div className="h-0.5 bg-gray-300 w-1/4"></div>
+          </div>
+          <h1 className="text-3xl font-bold text-blue-500">Harga Layanan Jurnal Internasional</h1>
+        </div>
+
+        {/* International Pricing Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {/* Card 1 - International */}
+          <PricingCard
+            title="Prosiding Internasional ISSN"
+            price="Rp.7.000.000"
+            features={[
+              { text: "Penentuan Tema / Judul", included: true },
+              { text: "Pembuatan Jurnal", included: true },
+              {
+                text: "Struktur Jurnal : Abstrak, Latar Belakang, Literatur Review, Metodologi, Hasil, Pembahasan",
+                included: true,
+              },
+              {
+                text: "Pemilihan Referensi Nasional dan International Bereputasi (Minimal 35 referensi)",
+                included: true,
+              },
+              { text: "Penataan Tatabahasa, Keterbaruan, dan Kedalaman isi", included: true },
+              { text: "Pengumpulan Data", included: true },
+              { text: "Analisis Statistik", included: true },
+              { text: "Translate", included: true },
+              { text: "Proofread", included: true },
+              { text: "Proses Mendeley (Daftar Pustaka)", included: true },
+              { text: "Cek Plagiasi (Turnitin minimal 15%)", included: true },
+              { text: "Layouting Jurnal Sesuai Templet", included: true },
+              { text: "Memilih Target publikasi sesuai prosiding", included: true },
+              { text: "Proses Pendampingan publikasi/penerbitan jurnal", included: true },
+              { text: "Proses Submission", included: true },
+              { text: "Perbaikan/Revisi", included: true },
+              { text: "Korespondensi", included: true },
+              { text: "Lama Pembuatan Jurnal 1-2 Minggu", included: true },
+              { text: "Submit ke beberapa Publisher 1 Minggu", included: true },
+              { text: "Penerimaan LOA (Letter of Acceptance) 1-6 Bulan*", included: true },
+              { text: "Publish 3-8 Bulan*", included: true },
+            ]}
+            note="Sudah Termasuk Biaya Publikasi"
+          />
+
+          {/* Card 2 - International */}
+          <PricingCard
+            title="Jurnal Internasional ISSN (INDEX COPERNICUS, DOAJ, DLL)"
+            price="Rp.7.000.000"
+            features={[
+              { text: "Penentuan Tema / Judul", included: true },
+              { text: "Pembuatan Jurnal", included: true },
+              {
+                text: "Struktur Jurnal : Abstrak, Latar Belakang, Literatur Review, Metodologi, Hasil, Pembahasan",
+                included: true,
+              },
+              {
+                text: "Pemilihan Referensi Nasional dan International Bereputasi (Minimal 35 referensi)",
+                included: true,
+              },
+              { text: "Penataan Tatabahasa, Keterbaruan, dan Kedalaman isi", included: true },
+              { text: "Pengumpulan Data", included: true },
+              { text: "Analisis Statistik", included: true },
+              { text: "Translate", included: true },
+              { text: "Proofread", included: true },
+              { text: "Proses Mendeley (Daftar Pustaka)", included: true },
+              { text: "Cek Plagiasi (Turnitin minimal 15%)", included: true },
+              { text: "Layouting Jurnal Sesuai Templet", included: true },
+              { text: "Memilih Target publikasi sesuai prosiding", included: true },
+              { text: "Proses Pendampingan publikasi/penerbitan jurnal", included: true },
+              { text: "Proses Submission", included: true },
+              { text: "Perbaikan/Revisi", included: true },
+              { text: "Korespondensi", included: true },
+              { text: "Lama Pembuatan Jurnal 1-2 Minggu", included: true },
+              { text: "Submit ke beberapa Publisher 1 Minggu", included: true },
+              { text: "Penerimaan LOA (Letter of Acceptance) 1-6 Bulan*", included: true },
+              { text: "Publish 3-8 Bulan*", included: true },
+            ]}
+            note="Sudah Termasuk Biaya Publikasi"
+          />
+
+</div>
+
+        <div className="text-center text-sm text-gray-500 mt-8 mb-16">
+          <p>*Tergantung Tujuan Jurnal</p>
+        </div>
+      </main>
+      <OrderFlow />
+      <Footer />
+    </div>
+
+  )
+}
+
+
+
+function PricingCard({ title, price, features, note = "Sudah Termasuk Biaya Publikasi" }) {
+  const handleWhatsAppRedirect = () => {
+    const message = `Halo, saya tertarik dengan layanan "${title}". Bisa dijelaskan lebih lanjut?`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/6289524396489?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   return (
-    <main>
-      <Navbar />
-
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block p-3 bg-blue-800 rounded-full mb-6">
-            <Edit className="h-12 w-12 text-white" />
-          </div>
-          <h1 className="text-4xl font-extrabold text-white sm:text-5xl">Pendampingan Penulisan Artikel</h1>
-          <p className="mt-4 text-xl text-blue-100 max-w-3xl mx-auto">
-            Bantuan dalam menulis dan menyusun artikel ilmiah yang memenuhi standar publikasi jurnal bereputasi
-          </p>
+    <div className="bg-white rounded-lg shadow-md p-6 flex flex-col">
+      <div className="flex justify-center mb-4">
+        <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 text-blue-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+            />
+          </svg>
         </div>
-      </section>
+      </div>
 
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Wujudkan Artikel Ilmiah Berkualitas Tinggi</h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Menulis artikel ilmiah yang berkualitas dan memenuhi standar jurnal bereputasi membutuhkan keterampilan
-                khusus dan pemahaman mendalam tentang metodologi penelitian. Layanan pendampingan penulisan artikel kami
-                hadir untuk membantu Anda menghasilkan artikel ilmiah yang berkualitas tinggi.
-              </p>
-              <p className="text-lg text-gray-600 mb-8">
-                Tim ahli kami akan membantu Anda dalam setiap tahap penulisan artikel, mulai dari perumusan ide,
-                penyusunan kerangka, hingga finalisasi artikel yang siap untuk dipublikasikan di jurnal bereputasi.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-800 hover:bg-blue-700"
-              >
-                Konsultasi Sekarang
-              </Link>
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/placeholder.svg?height=500&width=600"
-                alt="Pendampingan Penulisan Artikel"
-                width={600}
-                height={500}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="text-center mb-6">
+        <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+        <div className="w-16 h-0.5 bg-blue-500 mx-auto my-3"></div>
+        <div className="font-bold text-xl">Start From</div>
+        <div className="font-bold text-blue-500 text-xl">{price}</div>
+      </div>
 
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">Layanan Pendampingan Penulisan Artikel</h2>
-            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              Kami menyediakan berbagai layanan untuk membantu Anda dalam penulisan artikel ilmiah
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">Mengapa Memilih Layanan Kami?</h2>
-            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              Keunggulan layanan pendampingan penulisan artikel kami
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <CheckCircle className="h-6 w-6 text-green-500" />
-                </div>
-                <div className="ml-3">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Tim Ahli Berpengalaman</h3>
-                  <p className="text-gray-600">
-                    Tim kami terdiri dari para ahli dengan pengalaman luas dalam penulisan dan publikasi artikel ilmiah
-                    di berbagai jurnal bereputasi.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <CheckCircle className="h-6 w-6 text-green-500" />
-                </div>
-                <div className="ml-3">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Pendekatan Personalisasi</h3>
-                  <p className="text-gray-600">
-                    Kami menyediakan pendampingan yang disesuaikan dengan kebutuhan spesifik Anda, baik dari segi topik,
-                    metodologi, maupun target jurnal.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <CheckCircle className="h-6 w-6 text-green-500" />
-                </div>
-                <div className="ml-3">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Standar Kualitas Tinggi</h3>
-                  <p className="text-gray-600">
-                    Kami berkomitmen untuk membantu Anda menghasilkan artikel yang memenuhi standar kualitas tertinggi
-                    dan siap untuk dipublikasikan di jurnal bereputasi.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <CheckCircle className="h-6 w-6 text-green-500" />
-                </div>
-                <div className="ml-3">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Dukungan Komprehensif</h3>
-                  <p className="text-gray-600">
-                    Kami memberikan dukungan dari awal hingga akhir proses, termasuk bantuan dalam menanggapi komentar
-                    reviewer dan revisi artikel.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-blue-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Siap Menulis Artikel Berkualitas?</h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Konsultasikan kebutuhan penulisan artikel Anda dengan tim ahli kami dan dapatkan solusi terbaik
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-800 bg-white hover:bg-gray-100"
+      <ul className="flex-1 space-y-3 mb-6">
+        {features.map((feature, index) => (
+          <li key={index} className="flex items-start">
+            <span
+              className={`flex-shrink-0 w-5 h-5 rounded-full ${feature.included ? "bg-blue-500 text-white" : "bg-gray-200"} flex items-center justify-center text-xs mr-2 mt-0.5`}
             >
-              Hubungi Kami
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-blue-700"
-            >
-              Layanan Lainnya
-            </Link>
-          </div>
-        </div>
-      </section>
+              {feature.included ? "✓" : "•"}
+            </span>
+            <span className="text-sm">{feature.text}</span>
+          </li>
+        ))}
+      </ul>
 
-      <Footer />
-    </main>
-  )
+      <div className="text-center mt-4">
+        <p className="text-sm text-gray-600 mb-4">{note}</p>
+        <button
+          onClick={handleWhatsAppRedirect}
+          className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-full transition duration-300"
+        >
+          Konsultasi Sekarang
+        </button>
+      </div>
+    </div>
+    
+  );
+  
 }
 

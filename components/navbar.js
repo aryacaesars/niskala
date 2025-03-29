@@ -8,7 +8,7 @@ export default function Navbar() {
   const services = [
     { name: "Pendampingan Akreditasi Jurnal", href: "/services/akreditasi-jurnal" },
     { name: "Pembuatan Jurnal", href: "/services/pembuatan-jurnal" },
-    { name: "Pendampingan Penulisan Artikel", href: "/services/penulisan-artikel" },
+    { name: "Pendampingan Penulisan Artikel", href: "/pricing" },
     { name: "Pembuatan Book Chapter", href: "/services/book-chapter" },
     { name: "OJS Service", href: "/services/ojs-service" },
   ]
@@ -60,8 +60,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="/pricing" className="px-3 py-2 text-gray-700 hover:text-blue-800">
-              Harga            </Link>
+      
 
             <Link href="/contact" className="ml-4 px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-700">
               Konsultasi
